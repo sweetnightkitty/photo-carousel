@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Carousel container */
+.carousel-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hides the carousel images by default */
+.carousel-photo {
+    display: none;
+}
+
+.img-carousel {
+    max-width: 540px;
+}
+
+/* Previous and Next Buttons */
+.btn-previous, .btn-next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+}
+
+/* Positions the next button to the right */
+.btn-next {
+    right: 0;
+}
