@@ -1,85 +1,86 @@
 :root {
-    --standard-color: #E080B4;
-    --highlight-color: #DE3A3B;
+  --standard-color: #e080b4;
+  --highlight-color: #de3a3b;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-    max-height: 100vh;
-    max-width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 .filter {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(0, 0, 0, 0.4);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.4);
 }
-
 
 /* Carousel container */
 .carousel-container {
-    max-width: 540px;
-    position: relative;
-    margin: auto;
+  max-width: 540px;
+  position: relative;
+  margin: auto;
 }
 
 /* Hides the carousel images by default */
 .carousel-photo {
-    display: none;
+  display: none;
 }
 
 .img-carousel {
-    max-width: 540px;
+  max-width: 540px;
 }
 .photo-number {
-    position: absolute;
-    right: 0;
-    padding: 30px 16px;
-    font-weight: bold;
+  position: absolute;
+  right: 0;
+  padding: 30px 16px;
+  font-weight: bold;
 }
 
 .carousel-caption {
-    position: absolute;
-    bottom: 0;
-    padding: 20px 20px;
-    text-align: center;
-    width: 100%;
-    background-color: rgb(0, 0, 0, 0.4);
-    color: white;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 20px;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.4);
+  color: white;
 }
 /* Previous and Next Buttons */
-.btn-previous, .btn-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 0 15px;
-    text-decoration: none;
+.btn-previous,
+.btn-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 0 15px;
+  text-decoration: none;
 }
 
 /* Positions the next button to the right */
 .btn-next {
-    right: 0;
+  right: 0;
 }
 
 .carousel-dots {
-    text-align: center;
+  text-align: center;
 }
 .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background-color: var(--standard-color);
-    display: inline-block; /* Overides dots from being hidden with carousel images */
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: var(--standard-color);
+  display: inline-block; /* Overides dots from being hidden with carousel images */
 }
 
-.active, .dot:hover {
-    background-color: var(--highlight-color);
+.active,
+.dot:hover {
+  background-color: var(--highlight-color);
 }
