@@ -8,7 +8,8 @@
     "build": "npx webpack",
     "serve": "npx webpack serve",
     "check": "npx prettier . --check",
-    "write": "npx prettier . --write"
+    "write": "npx prettier . --write",
+    "lint": "npx eslint"
   },
   "keywords": [],
   "author": "",
