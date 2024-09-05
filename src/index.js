@@ -57,19 +57,21 @@ for(let i = 0; i < dots.length; i++) {
 }
 
 
-
+//hides all the photos
 function hidePhotos() {
     for(let i = 0; i < photos.length; i++) {
         photos[i].style.display = "none";
     };
 };
 
+//Sets all dot colors to default (--standard-color)
 function resetDots() {
     for(let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("active", "");
     };
 };
 
+//shows photo and changes color of relevant dot to (--highlight-color)
 function showCurrentPhoto() {
     photos[photosIndex-1].style.display = "block";
     dots[photosIndex-1].classList.add("active");

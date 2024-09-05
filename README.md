@@ -10,7 +10,16 @@ A comprehensive list of skills and concepts practiced in this project:
 - Create custom scripts in package.json
 - Create and push to subtree gh-pages
 - More to come as the project progresses
+- Checking work with Eslint and prettier
+- Creating a photo carousel with buttons that toggle photos left or right
+- Create carousel dots that can be clicked on to toggle to the relevant photo in the carousel
 
 ## Check out the assignment guidelines for this project:
 
 https://www.theodinproject.com/lessons/node-path-javascript-dynamic-user-interface-interactions#build-an-image-carousel
+
+
+## Further tasks:
+Currently the carousel can be operated manually through clicking on the left or right buttons, or the dots below the carousel.
+
+Next steps will be to have the carousel switch images automatically and continuously.
