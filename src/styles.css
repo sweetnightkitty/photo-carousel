@@ -1,3 +1,8 @@
+:root {
+    --standard-color: #E080B4;
+    --highlight-color: #DE3A3B;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -20,13 +25,28 @@
 
 /* Previous and Next Buttons */
 .btn-previous, .btn-next {
+    cursor: pointer;
     position: absolute;
     top: 50%;
     width: auto;
     margin-top: -22px;
+    text-decoration: none;
 }
 
 /* Positions the next button to the right */
 .btn-next {
     right: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: var(--standard-color);
+    display: inline-block; /* Overides dots from being hidden with carousel images */
+}
+
+.active, .dot:hover {
+    background-color: var(--highlight-color);
 }
