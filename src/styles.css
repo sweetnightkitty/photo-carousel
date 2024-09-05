@@ -38,6 +38,9 @@
     right: 0;
 }
 
+.carousel-dots {
+    margin-left: 15px;
+}
 .dot {
     cursor: pointer;
     height: 15px;
