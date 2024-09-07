@@ -1,24 +1,19 @@
 import "./styles.css";
-//The first photo, by default is index 1
-let photosIndex = 1;
+import { updateIndex } from "./carousel";
+import { hidePhotos } from "./carousel";
+import { resetDots } from "./carousel";
+import { showCurrentPhoto } from "./carousel";
+import { autoScrollPhotos } from "./carousel";
+import { dots } from "./carousel";
 
-const photos = document.querySelectorAll(".carousel-photo");
 const previous = document.querySelector(".btn-previous");
 const next = document.querySelector(".btn-next");
-const dots = document.querySelectorAll(".dot");
 
 showCurrentPhoto(); //Shows the starting default image of the carousel
 
 setInterval(autoScrollPhotos, 5000); //Carousel moves automatically every 5 seconds
 
-function autoScrollPhotos() {
-    photosIndex++;
-    resetIndex();
-    hidePhotos();
-    resetDots();
-    showCurrentPhoto();
-};
-
+//Runs carousel one image to the left when left arrow is clicked
 previous.addEventListener("click", () => {
   updateIndex("previous");
   hidePhotos();
@@ -26,6 +21,7 @@ previous.addEventListener("click", () => {
   showCurrentPhoto();
 });
 
+//Runs carousel one image to the right when right arrow is clicked
 next.addEventListener("click", () => {
   updateIndex("next");
   hidePhotos();
@@ -33,63 +29,14 @@ next.addEventListener("click", () => {
   showCurrentPhoto();
 });
 
+//Moves carousel to the image selected, when user clicks on a dot instead of an arrow
 for (let i = 0; i < dots.length; i++) {
   dots[i].addEventListener("click", () => {
-    updateIndex(i + 1); //Because Index by default begins at 1, whereas i starts at 0
+    //Accounts for the fact photosIndex by default starts at 1 whereas dots[i] will start at 0.
+    updateIndex(i + 1);
     hidePhotos();
     resetDots();
     showCurrentPhoto();
   });
 }
 
-
-function updateIndex(direction) {
-    //Scrolls left or right depending on the button clicked
-    if (direction == "previous") {
-      photosIndex -= 1;
-    } else if (direction == "next") {
-      photosIndex += 1;
-    }
-  
-    //resets index value if user scrolls past the first or last image, to keep carousel on a loop
-    resetIndex();
-  
-    //If a dot is clicked instead of an arrow, assigns that value instead
-    if (isNumber(direction)) {
-      photosIndex = direction;
-    }
-  }
-
-
-function hidePhotos() {
-  for (let i = 0; i < photos.length; i++) {
-    photos[i].style.display = "none";
-  }
-}
-
-
-function resetDots() {
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace("active", "");
-  }
-}
-
-
-function showCurrentPhoto() {
-  photos[photosIndex - 1].style.display = "block";
-  dots[photosIndex - 1].classList.add("active");
-}
-
-function isNumber(value) {
-  return typeof value === "number";
-}
-
-
-//Resets index value if user scrolls past the first or last image
-function resetIndex() {
-  if (photosIndex < 1) {
-    photosIndex = photos.length;
-  } else if (photosIndex > photos.length) {
-    photosIndex = 1;
-  };
-};
