@@ -9,26 +9,15 @@ const dots = document.querySelectorAll(".dot");
 
 showCurrentPhoto(); //Shows the starting default image of the carousel
 
-function updateIndex(direction) {
-  //Scrolls left or right depending on the button clicked
-  if (direction == "previous") {
-    photosIndex -= 1;
-  } else if (direction == "next") {
-    photosIndex += 1;
-  }
+setInterval(autoScrollPhotos, 5000); //Carousel moves automatically every 5 seconds
 
-  //Resets index value if user scrolls past the first or last image
-  if (photosIndex < 1) {
-    photosIndex = photos.length;
-  } else if (photosIndex > photos.length) {
-    photosIndex = 1;
-  }
-
-  //If a dot is clicked instead of an arrow, assigns that value
-  if (isNumber(direction)) {
-    photosIndex = direction;
-  }
-}
+function autoScrollPhotos() {
+    photosIndex++;
+    resetIndex();
+    hidePhotos();
+    resetDots();
+    showCurrentPhoto();
+};
 
 previous.addEventListener("click", () => {
   updateIndex("previous");
@@ -53,21 +42,39 @@ for (let i = 0; i < dots.length; i++) {
   });
 }
 
-//hides all the photos
+
+function updateIndex(direction) {
+    //Scrolls left or right depending on the button clicked
+    if (direction == "previous") {
+      photosIndex -= 1;
+    } else if (direction == "next") {
+      photosIndex += 1;
+    }
+  
+    //resets index value if user scrolls past the first or last image, to keep carousel on a loop
+    resetIndex();
+  
+    //If a dot is clicked instead of an arrow, assigns that value instead
+    if (isNumber(direction)) {
+      photosIndex = direction;
+    }
+  }
+
+
 function hidePhotos() {
   for (let i = 0; i < photos.length; i++) {
     photos[i].style.display = "none";
   }
 }
 
-//Sets all dot colors to default (--standard-color)
+
 function resetDots() {
   for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace("active", "");
   }
 }
 
-//shows photo and changes color of relevant dot to (--highlight-color)
+
 function showCurrentPhoto() {
   photos[photosIndex - 1].style.display = "block";
   dots[photosIndex - 1].classList.add("active");
@@ -76,3 +83,13 @@ function showCurrentPhoto() {
 function isNumber(value) {
   return typeof value === "number";
 }
+
+
+//Resets index value if user scrolls past the first or last image
+function resetIndex() {
+  if (photosIndex < 1) {
+    photosIndex = photos.length;
+  } else if (photosIndex > photos.length) {
+    photosIndex = 1;
+  };
+};
