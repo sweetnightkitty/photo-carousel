@@ -17,9 +17,3 @@ A comprehensive list of skills and concepts practiced in this project:
 ## Check out the assignment guidelines for this project:
 
 https://www.theodinproject.com/lessons/node-path-javascript-dynamic-user-interface-interactions#build-an-image-carousel
-
-## Further tasks:
-
-Currently the carousel can be operated manually through clicking on the left or right buttons, or the dots below the carousel.
-
-Next steps will be to have the carousel switch images automatically and continuously.
